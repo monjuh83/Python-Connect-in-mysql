@@ -1,0 +1,13 @@
+import pymysql
+
+con = pymysql.connect("localhost", "monju", "monjumamun1", "connection Python")
+cursor = con.cursor()
+
+add = """ INSERT INTO employee VALUES('Khan', 'Atif', 22, 'M',20000 )"""
+try:
+    cursor.execute(add)
+    con.commit()
+except:
+    con.rollback()
+
+con.close()
